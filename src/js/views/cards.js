@@ -61,10 +61,8 @@ useEffect(() => {
 						<img src={"https://starwars-visualguide.com/assets/img/characters/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
 						<div className="card-body">
 							<h3 className="card-title fw-bold">{element?.name}</h3>
-							<p className="card-text">Gender : {element?.gender}</p>
-							<p className="card-text">Hair Color : {element?.hair_color}</p>
-							<p className="card-text">Eye color : {element?.eye_color}</p>
-							<Link to={`/character${element.id}`}>
+							<p className="card-text">uid : {element?.uid}</p>
+							<Link to={`/character/${element.uid}`}>
 							<button className="btn-1 bg-primary">Learn more</button>
 							</Link>
 							<button className="btn-2 "><i className="fas fa-heart"></i></button>
@@ -77,55 +75,7 @@ useEffect(() => {
 		</div>
 	</div>
 
-    <div className="realtive flex items-center">
-		<div className="overflow-x-auto" style={{ maxWidth: '100vw' }}>
-			<div className="overflow-x-scroll whitespace-nowrap flex flex-row">
-				{planet?.map((element, key) => {
-					return (
-						<>
-						<div key={key} className="card-wrapper flex m-5">
-							<img src={"https://starwars-visualguide.com/assets/img/planets/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
-							<div className="card-body text-wrap" style= {{ height: '180px'}} >
-								<h3 className="card-title fw-bold">{element?.name}</h3>
-								<p className="card-text">Population: {element?.population}</p>
-								<p className="card-text">Terrain: {element?.terrain}</p>
-								<Link to={`/planet${element.id}`}>
-								<button className="btn-1 bg-primary">Learn more</button>
-								</Link>
-							    <button className="btn-2 "><i className="fas fa-heart"></i></button>
-						   </div>
-						</div>
-					</>
-					)
-				})}
-			</div>
-		</div>
-	</div>
 
-	<div className="realtive flex items-center">
-		<div className="overflow-x-auto" style={{ maxWidth: '100vw' }}>
-			<div className="overflow-x-scroll whitespace-nowrap flex flex-row">
-				{species?.map((element, key) => {
-					return (
-						<>
-						<div key={key} className="card-wrapper flex m-5">
-							<img src={"https://starwars-visualguide.com/assets/img/species/"+(key+1)+".jpg"} style={{width: '200px'}} alt='/' />
-							<div className="card-body text-wrap" style= {{ height: '180px'}} >
-								<h3 className="card-title fw-bold">{element?.name}</h3>
-								<p className="card-text">Eye color: {element?.eye_color}</p>
-								<p className="card-text">Language: {element?.language}</p>
-								<Link to={`/specie${element.id}`}>
-								<button className="btn-1 bg-primary">Learn more</button>
-								</Link>
-							    <button className="btn-2 "><i className="fas fa-heart"></i></button>
-						   </div>
-						</div>
-					</>
-					)
-				})}
-			</div>
-		</div>
-	</div>
 	
 	</>
   );

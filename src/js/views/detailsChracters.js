@@ -4,19 +4,21 @@ import React from "react";
 
 
 export const CharacterDetails = () => {
-    const { id } = useParams(); // 
+    const params = useParams(); // 
     const [character, setCharacter] = useState(null); 
-    console.log(id);
+    console.log(params.id);
 
     useEffect(() => {
         const getCharacter = async () => {
-            const response = await fetch(`https://www.swapi.tech/api/people/${id}`);
+            const response = await fetch(`https://www.swapi.tech/api/people/${params.id}
+            `);
             const data = await response.json();
-            setCharacter(data); 
+            setCharacter(data.result.properties); 
+            console.log(data.result.properties.name);
         };
 
         getCharacter();
-    }, [id]);
+    }, []);
 
 
 
@@ -27,7 +29,7 @@ export const CharacterDetails = () => {
          <div className="card mb-4 bg-dark">
            <div className="row g-0">
             <div className="col-md-4">
-                <img src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} style={{width: '300px'}} className="img fluid rounded-start" alt="..." />
+                <img src={`https://starwars-visualguide.com/assets/img/characters/${params.id}.jpg`} style={{width: '300px'}} className="img fluid rounded-start" alt="..." />
             </div>
             <div className="col-md-8 text-center">
                 <div className="card-body">
